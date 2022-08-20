@@ -1,14 +1,14 @@
-#ifndef SWAP_H
-#define SWAP_H
-class Swap
+#ifndef UTILS_H
+#define UTILS_H
+class Utils
 {
 public:
-    Swap();
-    template <typename T> static void swap(T &a, T &b){
-    T temp = a;
-    a = b;
-    b = temp;
-    //return true;
-};
+    template <typename T>
+    static void swap(T &a, T &b)
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    };
 };
 #endif
