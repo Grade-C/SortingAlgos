@@ -10,6 +10,6 @@ public:
 
     BubbleSort();
     //static std::vector<int> 
-    void static sort(std::vector <int> &input);
+    void sort(std::vector <int> &input);
 };
 #endif
