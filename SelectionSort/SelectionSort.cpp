@@ -1,6 +1,6 @@
-#include "InsertionSort.h"
+#include "SelectionSort.h"
 
-void InsertionSort::sort(std::vector<int> &input, Order order)
+void SelectionSort::sort(std::vector<int> &input, Order order)
 {
     bool swappable = false;
     for (int i = 0; i < input.size() - 1; i++)
