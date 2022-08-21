@@ -1,9 +1,9 @@
 #ifndef BUBBLE_SORT_H
 #define BUBBLE_SORT_H
-
-class BubbleSort 
+#include "../Sort/Sort.h"
+class BubbleSort : public Sort
 {
 public: 
-    void static sort(std::vector <int> &input);
+    void sort(std::vector <int> &input, Order);
 };
 #endif
