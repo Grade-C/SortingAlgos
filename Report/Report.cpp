@@ -13,5 +13,14 @@ void Report::increaseOuterLoop(){
 }
 
 void Report::showReport(){
-    std::cout<<"Outer loops : "<<this->outerLoop<<"\n"<<"Inner loops : "<<this->innerLoop<< "\n"; 
+    std::cout<<"Outer loops : "<<this->outerLoop<<"\n"<<"Inner loops : "<<this->innerLoop<< "\n" << "Time : " << this->totalTime << "\n"; 
+}
+
+void Report::startTime(){
+    this->start = clock()*1000;
+}
+
+void Report::endTime(){
+    this->end = clock()*1000;
+    this->totalTime += this->end - this->start; 
 }
