@@ -1,7 +1,9 @@
 #include "Report.h"
 
 Report::Report(){
-
+    this->innerLoop=0;
+    this->outerLoop=0;
+    this->totalLoop=0;
 }
 
 void Report::increaseInnerLoop(){
@@ -13,7 +15,8 @@ void Report::increaseOuterLoop(){
 }
 
 void Report::showReport(){
-    std::cout<<"Outer loops : "<<this->outerLoop<<"\n"<<"Inner loops : "<<this->innerLoop<< "\n" << "Time : " << this->totalTime << "\n"; 
+    //std::cout<<"Outer loops : "<<this->outerLoop<<"\t"<<"Inner loops : "<<this->innerLoop<< "\t" << "Time : " << this->totalTime << "\t"<<"Total Loops : "<<this->totalLoop<<"\n"; 
+    //std::cout<<"Total Loops : "<<this->innerLoop+this->outerLoop<<"\n"; 
 }
 
 void Report::startTime(){

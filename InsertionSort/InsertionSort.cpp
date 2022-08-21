@@ -6,7 +6,6 @@ void InsertionSort::sort(std::vector<int> &input, Order order)
     for (int i = 0; i < input.size() - 1; i++)
     {
         increaseOuterLoop();
-        startTime();
         if ((order == Asc && input[i] > input[i + 1]) || (order == Des && input[i] < input[i + 1]))
         {
             Utils::swap(input[i], input[i + 1]);
@@ -28,8 +27,11 @@ void InsertionSort::sort(std::vector<int> &input, Order order)
                 }
             }
         }
-        
     }
-    endTime();
     showReport();
+}
+
+std::string InsertionSort::getName()
+{
+    return "Insertion Sort";
 }

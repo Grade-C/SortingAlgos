@@ -15,5 +15,6 @@ public:
     };
 
     virtual void sort(std::vector<int> &input, Order order);
+    virtual std::string getName();
 };
 #endif

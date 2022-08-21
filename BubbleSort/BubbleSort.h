@@ -5,5 +5,6 @@ class BubbleSort : public Sort
 {
 public: 
     void sort(std::vector <int> &input, Order);
+    std::string getName();
 };
 #endif

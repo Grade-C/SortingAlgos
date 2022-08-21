@@ -14,11 +14,10 @@ public:
         a = b;
         b = temp;
     };
-    struct MinValueInfo {
-        int minVal;
-        int minValIdx;
+    struct Minimum {
+        int value;
+        int index;
     };
-    MinValueInfo findMinValue(std::vector<int>);
-    int findMinValueIndex(std::vector<int>);
+    Minimum findMinValue(std::vector<int>);
 };
 #endif

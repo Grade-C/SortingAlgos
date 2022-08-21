@@ -1,37 +1,32 @@
 #include "BubbleSort/BubbleSort.h"
 #include "InsertionSort/InsertionSort.h"
+#include "SelectionSort/SelectionSort.h"
+
+std::vector<int> unsortedData = {13, 45, 67, 67, 112, 167, 232, 289, 295};
+
+std::ostream& operator <<(std::ostream& output, std::vector <int> vec){
+    for(auto elem : vec){
+        output<< elem <<"\t";
+    }
+    output << "\n";
+    return output;
+}
 
 int main()
 {
-    //std::vector<int> v = {13, 45, 67, 34, 12, 56, 2, 67, 32, 89, 45};
-    std::vector<int> vec = {13, 45, 67, 67,  112, 167, 232, 289, 295 };
-    std::vector<int> v = vec;
-    InsertionSort is;
-    for (auto e : v)
-    {
-        std::cout << e << "\t";
-    }
-    std::cout<<"\n";
-    is.sort(v, is.Des);
-    for (auto e : v)
-    {
-        std::cout << e << "\t";
-    }
-    std::cout<<"\n";
+    BubbleSort bubbleSort;
+    InsertionSort insertionSort;
+    SelectionSort selectionSort;
+    
+    std::vector<Sort *> sortingAlgos = {&bubbleSort, &insertionSort, &selectionSort};
 
-    v = vec;
-    for (auto e : v)
+    for (int i = 0; i < sortingAlgos.size(); i++)
     {
-        std::cout << e << "\t";
+        std::vector<int> temp = unsortedData;
+        std::cout <<"Algorithm : "<<sortingAlgos[i]->getName()<<"\n"<<"Unsorted: "<<"\t"<<temp;
+        sortingAlgos[i]->sort(temp, sortingAlgos[i]->Des);
+        std::cout << "Sorted : "<<"\t"<<temp;
+        temp.clear();
     }
-    std::cout<<"\n";
-    BubbleSort bs;
-    bs.sort(v, bs.Des);
-    for (auto e : v)
-    {
-        std::cout << e << "\t";
-    }
-    std::cout<<"\n";
-
     return 0;
 }

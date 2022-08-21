@@ -10,6 +10,7 @@ class Report
 private:
     int innerLoop;
     int outerLoop;
+    int totalLoop;
     clock_t start, end;
     double totalTime = 0;
 
