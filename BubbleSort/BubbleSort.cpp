@@ -1,24 +1,21 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include "BubbleSort.h"
+#include "../Utils/Utils.h"
 
-template <typename T>
-bool swap(T &a, T &b)
+void BubbleSort::sort(std::vector<int> &input)
 {
-    T temp = a;
-    a = b;
-    b = a;
-    return true;
-}
-
-int main()
-{
-    std::vector<int> v = {13, 45, 67};
-    int a = 13;
-    int b = 43;
-    std::cout<<v[1]<<"\t"<<v[2]<<std::endl;
-    bool x = swap(v[1], v[2]);
-    std::cout<< std::boolalpha << x << "\n" <<v[1]<<"\t"<<v[2]<<std::endl;
-
-    return 0;
+    bool swappable = true;
+    while (swappable)
+    {
+        swappable = false;
+        for (int i = 0; i < input.size() - 1; i++)
+        {
+            if (input[i] > input[i + 1])
+            {
+                Utils::swap(input[i], input[i+1]);
+                swappable = true;
+            }
+        }
+    }
 }
