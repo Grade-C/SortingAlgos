@@ -6,5 +6,6 @@ class SelectionSort : public Sort
 {
 public: 
     void sort(std::vector <int> &input, Order order);
+    std::string getName();
 };
 #endif

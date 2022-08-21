@@ -1,35 +1,31 @@
 #include "SelectionSort.h"
 
+
 void SelectionSort::sort(std::vector<int> &input, Order order)
 {
+    int currentMin, currentMinIdx;
     bool swappable = false;
     for (int i = 0; i < input.size() - 1; i++)
     {
         increaseOuterLoop();
-        startTime();
-        if ((order == Asc && input[i] > input[i + 1]) || (order == Des && input[i] < input[i + 1]))
+        currentMin = input[i];
+        currentMinIdx = i;
+        for (int j = i + 1; j < input.size(); j++)
         {
-            Utils::swap(input[i], input[i + 1]);
-            swappable = true;
-            int currentPos = i;
-            while (swappable)
+            increaseInnerLoop();
+            if (j < input.size() &&
+                ((order == Asc && input[j] < currentMin && input[j] < input[j + 1]) ||
+                 (order == Des && input[j] > currentMin && input[j] > input[j + 1])))
             {
-                increaseInnerLoop();
-                if (currentPos - 1 >= 0 &&
-                    ((order == Asc && input[currentPos] < input[currentPos - 1]) ||
-                     (order == Des && input[currentPos] > input[currentPos - 1])))
-                {
-                    Utils::swap(input[currentPos], input[currentPos - 1]);
-                    currentPos--;
-                }
-                else
-                {
-                    swappable = false;
-                }
+                currentMin = input[j];
+                currentMinIdx = j;
             }
         }
-        
+        Utils::swap(input[i], input[currentMinIdx]);
     }
-    endTime();
     showReport();
+}
+
+std::string SelectionSort::getName(){
+    return "Selection Sort";
 }

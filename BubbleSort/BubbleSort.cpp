@@ -6,7 +6,6 @@ void BubbleSort::sort(std::vector<int> &input, Order order)
     while (swappable)
     {
         increaseOuterLoop();
-        startTime();
         swappable = false;
         for (int i = 0; i < input.size() - 1; i++)
         {
@@ -18,6 +17,9 @@ void BubbleSort::sort(std::vector<int> &input, Order order)
             }
         }
     }
-    endTime();
     showReport();
+}
+
+std::string BubbleSort::getName(){
+    return "Bubble Sort";
 }
