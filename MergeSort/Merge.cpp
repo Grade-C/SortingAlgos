@@ -17,7 +17,7 @@ std::vector<int> Merge::twoWay(std::vector<int>& list1 , std::vector<int>& list2
         }
         result.push_back(elem);
     }
-    
+
     // Remaining push
     for(;i<list1.size();i++){ 
         result.push_back(list1[i]);
@@ -35,7 +35,7 @@ int main(){
     std::vector <int> l2 = {1,3,4,8,34,67,89};
     std::vector <int> l3 = m.twoWay(l1, l2);
     for(auto e:l3){
-        std::cout<< e << "\t";
+        std::cout<< "e: " << e << "\t";
     }
     return 0;
 }
