@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-class Split
+class Iteration
 {
 private:
     void makeListAndPush(int, std::vector <int> elemList = {});

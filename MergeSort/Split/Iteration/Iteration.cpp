@@ -1,15 +1,14 @@
 #include "Iteration.h"
-//#include <math.h>
 
-int count = 0;
+int cnt = 0;
 
-void Split::makeListAndPush(int elem, std::vector<int> elemList)
+void Iteration::makeListAndPush(int elem, std::vector<int> elemList)
 {
     elemList = {elem};
     this->iResult.push_back(elemList);
 }
 
-std::vector<std::vector<int>> Split::iteration(std::vector<int> list)
+std::vector<std::vector<int>> Iteration::iteration(std::vector<int> list)
 {
     std::vector<int> elemList;
     if (list.size() < 1) // base case for empty vector
@@ -26,7 +25,7 @@ std::vector<std::vector<int>> Split::iteration(std::vector<int> list)
     makeListAndPush(list[0], elemList); // initial base case for vector with size > 1 to minimize 1 iteration
     for (int i = 1; i < list.size(); i++)
     {
-        count++;
+        cnt++;
         makeListAndPush(list[i], elemList); // Regular case
         if (i == list.size() - 2)
         {
@@ -34,7 +33,7 @@ std::vector<std::vector<int>> Split::iteration(std::vector<int> list)
             break;
         }
     }
-    std::cout << "Count " << count << std::endl;
+    std::cout << "Count " << cnt << std::endl;
     return this->iResult;
 }
 
