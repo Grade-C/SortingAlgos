@@ -4,8 +4,6 @@
 #include <vector>
 class Utils
 {
-    private:
-    //
 public:
     template <typename T>
     static void swap(T &a, T &b)
@@ -14,10 +12,14 @@ public:
         a = b;
         b = temp;
     };
-    struct Minimum {
+    struct Minimum
+    {
         int value;
         int index;
     };
     Minimum findMinValue(std::vector<int>);
+    friend std::ostream &operator<<(std::ostream &, std::vector<int>);
+    static void printVector(std::vector<int>);
+    static void printVector(std::vector<std::vector<int>>);
 };
 #endif
