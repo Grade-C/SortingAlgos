@@ -6,8 +6,7 @@ std::vector<int> Merge::twoWay(std::vector<int>& list1 , std::vector<int>& list2
     std::vector<int> result ;
     int elem;
 
-    // Comparision push
-    while(i<list1.size() && j<list2.size()){ 
+    while(i<list1.size() && j<list2.size()){ // Comparision push
         if(list1[i] < list2[j]){
             elem = list1[i];
             i++;
@@ -18,8 +17,7 @@ std::vector<int> Merge::twoWay(std::vector<int>& list1 , std::vector<int>& list2
         result.push_back(elem);
     }
 
-    // Remaining push
-    for(;i<list1.size();i++){ 
+    for(;i<list1.size();i++){ // Remaining push
         result.push_back(list1[i]);
     }
     for(;j<list2.size();j++){
