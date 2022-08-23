@@ -1,5 +1,4 @@
 #include "Split.h"
-#include "../Report/Report.h"
 #include <math.h>
 
 // std::vector<std::vector<int>> Split::singleElement(std::vector<int>& list){
