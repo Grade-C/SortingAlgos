@@ -6,10 +6,13 @@
 class Iteration
 {
 private:
-    void makeListAndPush(int, std::vector <int> elemList = {});
-
-public:
     std::vector<std::vector<int>> iResult = {};
-    std::vector<std::vector<int>> iteration(std::vector<int>);
+    void pushToResult(int, std::vector<int> elemList = {});
+    void pushToResult(std::vector<int>);
+    void processMuliSizeList(std::vector<int>);
+    void processSingleSizeList(std::vector<int>, std::vector<int>);
+
+protected:
+    std::vector<std::vector<int>> iteration(std::vector<int>, bool);
 };
 #endif
