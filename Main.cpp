@@ -20,7 +20,7 @@ int main()
         std::vector<int> temp = unsortedData;
         std::cout <<"Algorithm : "<<sortingAlgos[i]->getName()<<"\n"<<"Unsorted: "<<"\t";
         Utils::printVector(temp);
-        sortingAlgos[i]->sort(temp, sortingAlgos[i]->Des);
+        sortingAlgos[i]->sort(temp, sortingAlgos[i]->Asc);
         std::cout << "Sorted : "<<"\t";
         Utils::printVector(temp);
         temp.clear();

@@ -5,6 +5,6 @@
 class Split : public Iteration, public Recursion
 {
 public:
-    std::vector<std::vector<int>> split(std::vector<int> &);
+    std::vector<std::vector<int>> split(std::vector<int> &, bool isAscending);
 };
 #endif

@@ -6,9 +6,9 @@
 class Merge
 {
 private:
-    std::vector<int> twoWay(std::vector<int> list1, std::vector<int> list2);
+    std::vector<int> twoWay(std::vector<int> list1, std::vector<int> list2 , bool isAscending);
 
 public:
-    std::vector<int> merge(std::vector<std::vector<int>> lists);
+    std::vector<int> merge(std::vector<std::vector<int>> lists, bool isAscending);
 };
 #endif
