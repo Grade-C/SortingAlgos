@@ -3,15 +3,8 @@
 #include "SelectionSort/SelectionSort.h"
 #include "MergeSort/MergeSort.h"
 
-std::vector<int> unsortedData = {13, 45, 67, 67, 112, 110, 167, 232, 289, 295};
-
-/* std::ostream& operator <<(std::ostream& output, std::vector <int> vec){
-    for(auto elem : vec){
-        output<< elem <<"\t";
-    }
-    output << "\n";
-    return output;
-} */
+//std::vector<int> unsortedData = {13, 45, 67, 67, 110, 112, 167, 232, 289, 295};
+std::vector<int> unsortedData = {13, 10, 11, 12, 4, 139, 25, 7, 56, 6, 8, 12, 3};
 
 int main()
 {
