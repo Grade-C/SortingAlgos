@@ -27,7 +27,7 @@ std::vector<int> Merge::twoWay(std::vector<int>& list1 , std::vector<int>& list2
 }
 
 
-int main(){
+/* int main(){
     Merge m;
     std::vector <int> l1 = {2,5,8,12,45};
     std::vector <int> l2 = {1,3,4,8,34,67,89};
@@ -36,4 +36,4 @@ int main(){
         std::cout<< "e: " << e << "\t";
     }
     return 0;
-}
+} */

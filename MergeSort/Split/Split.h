@@ -2,7 +2,6 @@
 #define SPLIT_H
 #include "./Iteration/Iteration.h"
 #include "./Recursion/Recursion.h"
-
 class Split : public Iteration, public Recursion
 {
 public:
