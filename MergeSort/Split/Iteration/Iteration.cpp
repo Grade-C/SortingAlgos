@@ -11,12 +11,12 @@ void Iteration::pushToResult(std::vector<int> elemList)
     this->iResult.push_back(elemList);
 }
 
-void Iteration::processMuliSizeList(std::vector<int> list)
+void Iteration::processMuliSizeList(std::vector<int> list, bool isAscending)
 {
     int start = 0;
     for (int i = 0; i < list.size(); i++)
     {
-        if ((i + 1 == list.size()) || (list[i] > list[i + 1]))
+        if ((i + 1 == list.size()) || ( isAscending &&(list[i] > list[i + 1])) || ( !isAscending &&(list[i] < list[i + 1])))
         {
             int length = i - start + 1;
             std::vector<int> subVector(list.begin() + start, list.begin() + i + 1);
@@ -40,7 +40,7 @@ void Iteration::processSingleSizeList(std::vector<int> list, std::vector<int> el
     }
 }
 
-std::vector<std::vector<int>> Iteration::iteration(std::vector<int> list, bool isMultiSizeList)
+std::vector<std::vector<int>> Iteration::iteration(std::vector<int> list, bool isMultiSizeList, bool isAscending)
 {
     std::vector<int> elemList;
 
@@ -52,7 +52,7 @@ std::vector<std::vector<int>> Iteration::iteration(std::vector<int> list, bool i
 
     if (isMultiSizeList)
     {
-        processMuliSizeList(list);
+        processMuliSizeList(list, isAscending);
     }
     else
     {
