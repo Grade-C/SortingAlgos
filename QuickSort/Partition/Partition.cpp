@@ -2,6 +2,7 @@
 
 
 Partition::Partition(){
+    //std::cout << "Inf: "<< this->INFINITY<< "\n";
     //PartitionResult partitionResult;
 }
 
@@ -32,7 +33,7 @@ Partition::PartitionResult Partition::makePartitionResult(int low, int high, int
     return partitionResult;
 }
 
-Partition::PartitionResult Partition::partition(int low, int high, std::vector<int> list)
+Partition::PartitionResult Partition::partition(int low, int high, std::vector<int> &list)
 {
     int pivot = list[low]; // Pivoting the first value
     int greaterFinderIdx = low + 1;

@@ -8,16 +8,16 @@
 class Partition
 {
 protected:
-    int INFINITY = std::numeric_limits<int>::infinity();
+    int INFINITY = std::numeric_limits<int>::max();
     struct PartitionResult
     {
-        int left = NULL;
-        int right = NULL;
+        int left = -1;
+        int right = -1;
     };
 
 public:
     Partition();
-    PartitionResult partition(int low, int high, std::vector<int> list);
+    PartitionResult partition(int low, int high, std::vector<int> &list);
 
 private:
     PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list);
