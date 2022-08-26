@@ -6,7 +6,8 @@
 class QuickSort : public Sort, public Partition
 {
 private:
-    void sort(int low, int high, std::vector<int> list);
+    void sort(int low, int high, std::vector<int> &list);
+    void modifyList(std::vector<int> &list);
 
 public:
     void sort(std::vector<int> &input, Order order);

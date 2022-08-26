@@ -7,17 +7,19 @@
 
 class Partition
 {
-public:
-    Partition();
+protected:
+    int INFINITY = std::numeric_limits<int>::infinity();
     struct PartitionResult
     {
         int left = NULL;
         int right = NULL;
     };
+
+public:
+    Partition();
     PartitionResult partition(int low, int high, std::vector<int> list);
 
 private:
-    int INFINITY = std::numeric_limits<int>::infinity();
     PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list);
 };
 #endif

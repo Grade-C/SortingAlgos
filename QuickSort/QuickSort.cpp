@@ -1,6 +1,10 @@
 #include "QuickSort.h"
 
-void QuickSort::sort(int low, int high, std::vector<int> list)
+void QuickSort::modifyList(std::vector<int> &list){
+    list.push_back(this->INFINITY);
+}
+
+void QuickSort::sort(int low, int high, std::vector<int> &list)
 {
     PartitionResult partitionResult = this->partition(low, high, list);
     if(partitionResult.left != NULL){
@@ -12,7 +16,9 @@ void QuickSort::sort(int low, int high, std::vector<int> list)
 }
 
 void QuickSort::sort(std::vector<int> &input, Order order){
-    PartitionResult partitionResult;}
+    modifyList(input);
+    sort(0, input.size()-1, input);
+}
 
 std::string QuickSort::getName()
 {
