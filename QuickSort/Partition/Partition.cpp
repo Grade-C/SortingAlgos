@@ -1,6 +1,10 @@
 #include "Partition.h"
 
 
+Partition::Partition(){
+    //PartitionResult partitionResult;
+}
+
 Partition::PartitionResult Partition::makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list)
 {
     int leftWindowSize = smallerFinderIdx - low;

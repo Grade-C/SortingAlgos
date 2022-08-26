@@ -1,19 +1,12 @@
 #ifndef QUICK_SORT_H
 #define QUICK_SORT_H
 #include "../Sort/Sort.h"
-#include <limits>
+#include "./Partition/Partition.h"
 
-class QuickSort : public Sort
+class QuickSort : public Sort, public Partition
 {
 private:
-    int INFINITY = std::numeric_limits<int>::infinity();
-    struct PartitionResult
-    {
-        int left = NULL;
-        int right = NULL;
-    };
-    PartitionResult partition(std::vector<int> list, int low, int high);
-    PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list);
+    void sort(int low, int high, std::vector<int> list);
 
 public:
     void sort(std::vector<int> &input, Order order);
