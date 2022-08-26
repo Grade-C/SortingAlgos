@@ -9,29 +9,8 @@ std::string QuickSort::getName()
     return "Quick Sort";
 }
 
-int QuickSort::partition(std::vector<int> list, int low, int high)
+QuickSort::PartitionResult QuickSort::makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list)
 {
-    int pivot = list[low]; // Pivoting the first value
-    int greaterFinderIdx = low + 1;
-    int smallerFinderIdx = high - 1;
-
-    while (greaterFinderIdx < smallerFinderIdx)
-    {
-        while (list[greaterFinderIdx] <= pivot)
-        {
-            greaterFinderIdx++;
-        }
-        while (list[smallerFinderIdx] > pivot)
-        {
-            smallerFinderIdx--;
-        }
-        if (greaterFinderIdx < smallerFinderIdx)
-        {
-            Utils::swap(list[greaterFinderIdx], list[smallerFinderIdx]); // swaps the value at  greaterFinderIdx aka i with smallerFinderIdx aka j
-        }
-    }
-    Utils::swap(list[low], list[smallerFinderIdx]); // swaps pivot with the value at smallerFinderIdx aka j
-
     int leftWindowSize = smallerFinderIdx - low;
     int rightWindowSize = high - smallerFinderIdx;
 
@@ -55,4 +34,29 @@ int QuickSort::partition(std::vector<int> list, int low, int high)
         Utils::swap(list[smallerFinderIdx + 1], list[smallerFinderIdx + 2]);
     }
     return partitionResult;
+}
+
+QuickSort::PartitionResult QuickSort::partition(std::vector<int> list, int low, int high)
+{
+    int pivot = list[low]; // Pivoting the first value
+    int greaterFinderIdx = low + 1;
+    int smallerFinderIdx = high - 1;
+
+    while (greaterFinderIdx < smallerFinderIdx)
+    {
+        while (list[greaterFinderIdx] <= pivot)
+        {
+            greaterFinderIdx++;
+        }
+        while (list[smallerFinderIdx] > pivot)
+        {
+            smallerFinderIdx--;
+        }
+        if (greaterFinderIdx < smallerFinderIdx)
+        {
+            Utils::swap(list[greaterFinderIdx], list[smallerFinderIdx]); // swaps the value at  greaterFinderIdx aka i with smallerFinderIdx aka j
+        }
+    }
+    Utils::swap(list[low], list[smallerFinderIdx]); // swaps pivot with the value at smallerFinderIdx aka j
+    return makePartitionResult(low, high, smallerFinderIdx, list);
 }

@@ -12,7 +12,8 @@ private:
         int left = NULL;
         int right = NULL;
     };
-    int partition(std::vector<int> list, int low, int high);
+    PartitionResult partition(std::vector<int> list, int low, int high);
+    PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list);
 
 public:
     void sort(std::vector<int> &input, Order order);
