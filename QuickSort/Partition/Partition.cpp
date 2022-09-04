@@ -54,7 +54,7 @@ Partition::PartitionResult Partition::partition(int low, int high, std::vector<i
 
     int i = low + 1; // i = greaterFinderIdx (ASC) | smallerFinderIdx (DESC)
     //int j = high - 1; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
-    int j = high; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
+    int j = high-1; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
     std::cout << "\n" << "i : " << i << " j : " << j << "\n"; 
 
 
@@ -80,7 +80,9 @@ Partition::PartitionResult Partition::partition(int low, int high, std::vector<i
         }
     }
             std::cout<< "swapping low,j while i>j\n";
-
-    Utils::swap(list[low], list[j]); // swaps pivot with the value at j
+    if(i>j){
+        Utils::swap(list[low], list[j]);
+    }
+     // swaps pivot with the value at j
     return makePartitionResult(low, high, j, list, isAscending);
 }

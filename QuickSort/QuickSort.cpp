@@ -47,7 +47,7 @@ int main()
 {
 
     QuickSort qs;
-    std::vector<int> unsortedData = {13, 10, 11, 12, 4, 139, 139, 45, 45, 25,  7, 56, 6, 8, 10 , 34, 10, 12, 3, 45};
+    std::vector<int> unsortedData = {34,1,1,13, 10, 11, -9, 12, 4, 1,-7, -9 , 139, 139, 45,45, 45, 25, 12,   7, 56, 6, 8, 45, 10 , 45 ,34, 10, 12, 3, 11, 45,-7};
     Utils::printVector(unsortedData);
     qs.sort(unsortedData, qs.Asc);
     return 0;
