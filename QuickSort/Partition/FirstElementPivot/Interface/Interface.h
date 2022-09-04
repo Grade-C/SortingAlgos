@@ -10,5 +10,6 @@ private:
 protected:
     virtual void increaseI(int &i, std::vector <int> list, int pivot);
     virtual void decreaseJ(int &j, std::vector <int> list, int pivot);
+    virtual void decreaseJ(int &j, const int i,std::vector <int> list, int pivot);
 };
 #endif
