@@ -6,54 +6,55 @@ Partition::Partition(){
     //PartitionResult partitionResult;
 }
 
-Partition::PartitionResult Partition::makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list)
+Partition::PartitionResult Partition::makePartitionResult(int low, int high, int j, std::vector<int> list, bool isAscending)
 {
-    int leftWindowSize = smallerFinderIdx - low;
-    int rightWindowSize = high - smallerFinderIdx;
+    int leftWindowSize = j - low;
+    int rightWindowSize = high - j;
 
     PartitionResult partitionResult;
 
     if (leftWindowSize > 2)
     {
-        partitionResult.left = smallerFinderIdx;
+        partitionResult.left = j;
     }
-    else if (leftWindowSize == 2 && list[smallerFinderIdx - 1] < list[smallerFinderIdx - 2])
+    else if ( leftWindowSize == 2 )
+    if((isAscending && list[j - 1] < list[j - 2]) || (!isAscending && list[j - 1] > list[j - 2]))
     {
-        Utils::swap(list[smallerFinderIdx - 1], list[smallerFinderIdx - 2]);
+        Utils::swap(list[j - 1], list[j - 2]);
     }
 
-    if (rightWindowSize > 3 || (rightWindowSize == 3 && list[high] < this->INFINITY))
+    if (rightWindowSize > 3 || ((isAscending && rightWindowSize == 3 && list[high] < this->INFINITY) || (!isAscending && rightWindowSize ==3 && list[high] > this->NEG_INFINITY)))
     {
-        partitionResult.right = smallerFinderIdx;
+        partitionResult.right = j;
     }
-    else if (((rightWindowSize == 3 && list[high] == this->INFINITY) || rightWindowSize == 2) && list[smallerFinderIdx + 1] > list[smallerFinderIdx + 2])
+    else if ((isAscending && ((rightWindowSize == 3 && list[high] == this->INFINITY) || rightWindowSize == 2) && list[j + 1] > list[j + 2]) || (!isAscending && ((rightWindowSize == 3 && list[high] == this->NEG_INFINITY) || rightWindowSize == 2) && list[j + 1] < list[j + 2]))
     {
-        Utils::swap(list[smallerFinderIdx + 1], list[smallerFinderIdx + 2]);
+        Utils::swap(list[j + 1], list[j + 2]);
     }
     return partitionResult;
 }
 
-Partition::PartitionResult Partition::partition(int low, int high, std::vector<int> &list)
+Partition::PartitionResult Partition::partition(int low, int high, std::vector<int> &list, bool isAscending)
 {
     int pivot = list[low]; // Pivoting the first value
-    int greaterFinderIdx = low + 1;
-    int smallerFinderIdx = high - 1;
+    int i = low + 1; // i = greaterFinderIdx (ASC) | smallerFinderIdx (DESC)
+    int j = high - 1; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
 
-    while (greaterFinderIdx < smallerFinderIdx)
+    while (i < j)
     {
-        while (list[greaterFinderIdx] <= pivot)
+        while ((isAscending && list[i] <= pivot) || (!isAscending && list[i] > pivot))
         {
-            greaterFinderIdx++;
+            i++;
         }
-        while (list[smallerFinderIdx] > pivot)
+        while ((isAscending && list[j] > pivot) || (!isAscending && list[j] <= pivot))
         {
-            smallerFinderIdx--;
+            j--;
         }
-        if (greaterFinderIdx < smallerFinderIdx)
+        if (i < j)
         {
-            Utils::swap(list[greaterFinderIdx], list[smallerFinderIdx]); // swaps the value at  greaterFinderIdx aka i with smallerFinderIdx aka j
+            Utils::swap(list[i], list[j]); // swaps the value at i with j
         }
     }
-    Utils::swap(list[low], list[smallerFinderIdx]); // swaps pivot with the value at smallerFinderIdx aka j
-    return makePartitionResult(low, high, smallerFinderIdx, list);
+    Utils::swap(list[low], list[j]); // swaps pivot with the value at j
+    return makePartitionResult(low, high, j, list, isAscending);
 }

@@ -9,6 +9,7 @@ class Partition
 {
 protected:
     int INFINITY = std::numeric_limits<int>::max();
+    int NEG_INFINITY = std::numeric_limits<int>::min();
     struct PartitionResult
     {
         int left = -1;
@@ -17,9 +18,9 @@ protected:
 
 public:
     Partition();
-    PartitionResult partition(int low, int high, std::vector<int> &list);
+    PartitionResult partition(int low, int high, std::vector<int> &list, bool isAscending);
 
 private:
-    PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list);
+    PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list, bool isAscending);
 };
 #endif
