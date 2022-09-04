@@ -21,6 +21,6 @@ public:
     PartitionResult partition(int low, int high, std::vector<int> &list, bool isAscending);
 
 private:
-    PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> list, bool isAscending);
+    PartitionResult makePartitionResult(int low, int high, int smallerFinderIdx, std::vector<int> &list, bool isAscending);
 };
 #endif
