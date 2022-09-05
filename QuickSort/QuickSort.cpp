@@ -53,6 +53,6 @@ int main()
     std::vector<int> unsortedData = {34,1,1,13, 10, 11, -9, 12, 4, 1,-7, -9 , 139, 139, 45,45, 45, 25, 12,   7, 56, 6, 8, 45, 10 , 45 ,34, 10, 12, 3, 11, 45,-7, -9};
     //std::vector<int> unsortedData = {13, 10, 11, 4, 139, 25, 11, 7, 56, 6, 8, 12, 11, 3, 13, 11};
     Utils::printVector(unsortedData);
-    qs.sort(unsortedData, Sort::Order::Des);
+    qs.sort(unsortedData, qs.Asc);
     return 0;
 }

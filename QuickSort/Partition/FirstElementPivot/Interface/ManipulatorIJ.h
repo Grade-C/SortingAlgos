@@ -8,7 +8,7 @@ class ManipulatorIJ
     ManipulatorIJ();
     virtual ~ManipulatorIJ();
 protected:
-    virtual void increaseI(int &i, std::vector <int> list, int pivot) = 0 ;
+    virtual void increaseI(int &i, std::vector <int> list, int pivot, bool isAscending=false) = 0 ;
     virtual void decreaseJ(int &j,std::vector <int> list, int pivot, const int i=0) = 0;
 };
 #endif

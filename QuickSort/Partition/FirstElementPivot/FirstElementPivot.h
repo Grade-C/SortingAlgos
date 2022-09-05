@@ -6,7 +6,6 @@ class FirstElementPivot : public AscendingOrder, public DescendingOrder
 {
 protected:
     void increaseI(int &i, std::vector<int> list, int pivot, bool isAscending);
-    void increaseI(int &i, std::vector<int> list, int pivot);
     void decreaseJ(int &j, const int i, std::vector<int> list, int pivot, bool isAscending);
 };
 #endif
