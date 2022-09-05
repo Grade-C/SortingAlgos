@@ -65,18 +65,20 @@ Partition::PartitionResult Partition::partition(int low, int high, std::vector<i
     while (i < j)
 
     {
+        increaseI(i, list, pivot, isAscending);
         //std::cout << "Inside while \n";
-        while ((isAscending && list[i] <= pivot) || (!isAscending && list[i] > pivot))
+        /* while ((isAscending && list[i] <= pivot) || (!isAscending && list[i] > pivot))
         {
 
             i++;
             //std::cout << "i : " << i << "\n";
-        }
-        while ((isAscending && list[j] > pivot) || (!isAscending && list[j] <= pivot && j >= i))
+        } */
+        decreaseJ(j,i, list, pivot, isAscending);
+        /* while ((isAscending && list[j] > pivot) || (!isAscending && list[j] <= pivot && j >= i))
         {
             j--;
             //std::cout << "j : " << j << " " << pivot << " " << list[j] << "\n";
-        }
+        } */
         if (i < j)
         {
             //std::cout << "swapping i,j while i<j\n";
