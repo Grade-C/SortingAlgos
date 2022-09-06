@@ -65,31 +65,57 @@ Partition::PartitionResult Partition::makePartitionResult(int low, int high, int
 
 Partition::PartitionResult Partition::partition(int low, int high, std::vector<int> &list, bool isAscending)
 {
-    int pivot = list[high]; // LEP
+    int pivot = list[low]; // Pivoting the first value
+    //int pivot = list[high]; // Pivoting the first value
     std::cout << "\n"
-              << "pivot : " << pivot  << " idx: "<< high<< "\npresort_vector : " ;
+              << "pivot : " << pivot  << " idx: "<< low<< "\npresort_vector : " ;
               Utils::printVector(list);
               std::cout << "\n";
 
-    int i = low; // LEP 
-    int j = high - 1; // LEP
+    //int i = low + 1; // i = greaterFinderIdx (ASC) | smallerFinderIdx (DESC)
+    int i = low+1; // i = greaterFinderIdx (ASC) | smallerFinderIdx (DESC)
+    // int j = high - 1; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
+    int j = high - 1; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
+    //int j = high; // j = smallerFinderIdx (ASC) | greaterFinderIdx (DESC)
+    /* std::cout << "\n"
+              << "i : " << i << " j : " << j << "\n"; */
               std::cout<< "INIT I  : " << i << " INIT J : "<< j<<"\n";
 
-    while (i < j) //LEP
+    while (i <= j)
+
     {
+        //increaseI(i, j, list, pivot, isAscending);
         increaseI(i, j, high, list,pivot, isAscending);
-        std::cout<< "i = "<< i<<" value = "<< list[i]<<"\n"; 
+        //std::cout << "Inside while \n";
+        /* while ((isAscending && list[i] <= pivot) || (!isAscending && list[i] > pivot))
+        {
+
+            i++;
+            //std::cout << "i : " << i << "\n";
+        } */
+        //decreaseJ(j,i, list, pivot, isAscending);
         decreaseJ(j, i, low, list, pivot, isAscending);
-        std::cout<<"hoise\n";
+        /* while ((isAscending && list[j] > pivot) || (!isAscending && list[j] <= pivot && j >= i))
+        {
+            j--;
+            //std::cout << "j : " << j << " " << pivot << " " << list[j] << "\n";
+        } */
         if (i < j)
         {
-            Utils::swap(list[i], list[j]);
+            //std::cout << "swapping i,j while i<j\n";
+            Utils::swap(list[i], list[j]); // swaps the value at i with j
         }
     }
+    //std::cout << "swapping low,j while i>j\n";
     if (i >= j)
     {
-        Utils::swap(list[high], list[i]); // LEP
+        Utils::swap(list[low], list[j]);
+        //Utils::swap(list[high], list[i]);
     }
-    //return makePartitionResult(low, high, j, list, isAscending);
-    return makePartitionResult(low, high, i, list, isAscending); // LEP
+    // swaps pivot with the value at j
+    std::cout<< "Before Making : ";
+    Utils::printVector(list);
+    std::cout<< "\n";
+    return makePartitionResult(low, high, j, list, isAscending);
+    //return makePartitionResult(low, high, i, list, isAscending);
 }
