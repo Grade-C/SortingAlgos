@@ -2,85 +2,48 @@
 
 Partition::Partition()
 {
-    // std::cout << "Inf: "<< this->INFINITY<< "\n";
-    // PartitionResult partitionResult;
 }
 
 Partition::PartitionResult Partition::makePartitionResult(int low, int high, int j, std::vector<int> &list, bool isAscending)
 {
     int leftWindowSize = j - low;
     int rightWindowSize = high - j;
-    std::cout << "LOW  : " << low << " HIGH : " << high << " j: " << j << "\n";
-
-    std::cout << "Left size : " << leftWindowSize << " LEFT val: " << list[j - 1] << "\n";
-    std::cout << "Right size : " << rightWindowSize << " RIGHT val: " << list[j + 1] << "\n";
-    std::vector<int> leftV (list.begin(), list.begin()+j);
-    std::vector<int> rightV (list.begin()+j, list.end());
-    std::cout << "parti left: ";
-    Utils::printVector(leftV);
-    std::cout<<"\n";
-    std::cout << "parti right: ";
-    Utils::printVector(rightV);
-    std::cout<<"\n";
-
-
     PartitionResult partitionResult;
 
     if (leftWindowSize > 2)
     {
-        std::cout << "LEFT many values "
-                  << "\n";
-
         partitionResult.left = j;
     }
-    else if (leftWindowSize == 2){
-        std::cout << "LEFT 2 values "
-                  << "\n";
-    if ((isAscending && list[j - 1] < list[j - 2]) || (!isAscending && list[j - 1] > list[j - 2]))
+    else if (leftWindowSize == 2)
     {
-        Utils::swap(list[j - 1], list[j - 2]);
-    }
+        if ((isAscending && list[j - 1] < list[j - 2]) || (!isAscending && list[j - 1] > list[j - 2]))
+        {
+            Utils::swap(list[j - 1], list[j - 2]);
+        }
     }
 
     if (rightWindowSize > 3 ||
         ((isAscending && rightWindowSize == 3 && list[high] < this->INFINITY) || (!isAscending && rightWindowSize == 3 && list[high] > this->NEG_INFINITY)))
     {
-        std::cout << "RIGHT many values "
-                  << "\n";
-
         partitionResult.right = j;
     }
     else if ((isAscending && ((rightWindowSize == 3 && list[high] == this->INFINITY) || rightWindowSize == 2) && list[j + 1] > list[j + 2]) || (!isAscending && ((rightWindowSize == 3 && list[high] == this->NEG_INFINITY) || rightWindowSize == 2) && list[j + 1] < list[j + 2]))
     {
-        std::cout << "RIGHT 3/2 values "
-                  << "\n";
-
         Utils::swap(list[j + 1], list[j + 2]);
     }
-    std::cout<< "post_sort vector: ";
-    Utils::printVector(list);
-    std::cout<< "\n";
     return partitionResult;
 }
 
 Partition::PartitionResult Partition::partition(int low, int high, std::vector<int> &list, bool isAscending)
 {
     int pivot = list[high]; // LEP
-    std::cout << "\n"
-              << "pivot : " << pivot  << " idx: "<< high<< "\npresort_vector : " ;
-              Utils::printVector(list);
-              std::cout << "\n";
+    int i = low;            // LEP
+    int j = high - 1;       // LEP
 
-    int i = low; // LEP 
-    int j = high - 1; // LEP
-              std::cout<< "INIT I  : " << i << " INIT J : "<< j<<"\n";
-
-    while (i < j) //LEP
+    while (i < j) // LEP
     {
-        increaseI(i, j, high, list,pivot, isAscending);
-        std::cout<< "i = "<< i<<" value = "<< list[i]<<"\n"; 
-        decreaseJ(j, i, low, list, pivot, isAscending);
-        std::cout<<"hoise\n";
+        increaseI(i, high, list, pivot, isAscending);
+        decreaseJ(j, low, list, pivot, isAscending);
         if (i < j)
         {
             Utils::swap(list[i], list[j]);
@@ -90,6 +53,5 @@ Partition::PartitionResult Partition::partition(int low, int high, std::vector<i
     {
         Utils::swap(list[high], list[i]); // LEP
     }
-    //return makePartitionResult(low, high, j, list, isAscending);
     return makePartitionResult(low, high, i, list, isAscending); // LEP
 }

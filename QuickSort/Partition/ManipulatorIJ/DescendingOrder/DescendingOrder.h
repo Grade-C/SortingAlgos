@@ -6,6 +6,6 @@ class DescendingOrder : virtual public AbstractIJ
 {
 protected:
     void increaseI(int &i, int high, std::vector<int> list, int pivot);
-    void decreaseJ(int &j ,int low, std::vector<int> list, int pivot, const int i);
+    void decreaseJ(int &j ,int low, std::vector<int> list, int pivot);
 };
 #endif
