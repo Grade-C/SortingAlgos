@@ -4,9 +4,9 @@
 #include <vector>
 #include <limits>
 #include "../../Utils/Utils.h"
-#include "./FirstElementPivot/FirstElementPivot.h"
+#include "./ManipulatorIJ/ManipulatorIJ.h"
 
-class Partition : public FirstElementPivot
+class Partition : public ManipulatorIJ
 {
 protected:
     int INFINITY = std::numeric_limits<int>::max();

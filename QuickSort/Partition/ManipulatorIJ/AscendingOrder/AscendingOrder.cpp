@@ -1,7 +1,7 @@
 #include "AscendingOrder.h"
-void AscendingOrder::increaseI(int &i, std::vector<int> list, int pivot)
+void AscendingOrder::increaseI(int &i, std::vector<int> list, int pivot, const int j)
 {
-    while (list[i] <= pivot)
+    while (list[i] <= pivot )
     {
         i++;
     }

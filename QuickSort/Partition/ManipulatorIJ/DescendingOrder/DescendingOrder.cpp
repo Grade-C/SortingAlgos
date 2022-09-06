@@ -12,5 +12,6 @@ void DescendingOrder::decreaseJ(int &j, std::vector<int> list, int pivot,const i
     while (list[j] <= pivot && j >= i)
     {
         j--;
+        std::cout << "piv value :"<< pivot << " j->"<<j<<"\n";
     }
 }
