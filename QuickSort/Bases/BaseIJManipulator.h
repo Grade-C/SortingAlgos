@@ -1,12 +1,12 @@
-#ifndef QS_PARTITION_ABSTRACTIJ_H
-#define QS_PARTITION_ABSTRACTIJ_H
+#ifndef QS_BASEIJMANIPULATOR_H
+#define QS_BASEIJMANIPULATOR_H
 #include <iostream>
 #include <vector>
-class AbstractIJ
+class BaseIJManipulator
 {
     public:
-    AbstractIJ();
-    virtual ~AbstractIJ();
+    BaseIJManipulator();
+    virtual ~BaseIJManipulator();
 protected:
     virtual void increaseI(int &i, const int high, std::vector <int> list, int pivot) = 0 ;
     virtual void decreaseJ(int &j, const int low, std::vector <int> list, int pivot) = 0;

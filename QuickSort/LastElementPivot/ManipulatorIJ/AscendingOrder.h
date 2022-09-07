@@ -1,5 +1,5 @@
-#ifndef QS_PARTITION_ASCENDING_ORDER_H
-#define QS_PARTITION_ASCENDING_ORDER_H
+#ifndef QS_LEP_ASCO_H
+#define QS_LEP_ASCO_H
 #include "../AbstractIJ/AbstractIJ.h"
 class AscendingOrder : virtual public AbstractIJ
 {

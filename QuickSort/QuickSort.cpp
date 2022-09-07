@@ -1,5 +1,9 @@
 #include "QuickSort.h"
 
+void QuickSort::sort(std::vector<int> &input, Varients varient , Order order){
+
+}
+
 void QuickSort::sort(int low, int high, std::vector<int> &list, Order order)
 {
     bool isAscending = order == Order::Asc ? true : false;
