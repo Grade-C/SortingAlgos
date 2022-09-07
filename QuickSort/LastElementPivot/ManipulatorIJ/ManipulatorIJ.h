@@ -1,7 +1,7 @@
-#ifndef QS_PARTITION_MANIPULATORIJ_H
-#define QS_PARTITION_MANIPULATORIJ_H
-#include "./AscendingOrder/AscendingOrder.h"
-#include "./DescendingOrder/DescendingOrder.h"
+#ifndef QS_LEP_MANIJ_H
+#define QS_LEP_MANIJ_H
+#include "AscendingOrder.h"
+#include "DescendingOrder.h"
 class ManipulatorIJ : public AscendingOrder, public DescendingOrder
 {
     private:

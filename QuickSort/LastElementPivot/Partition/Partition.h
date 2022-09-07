@@ -2,20 +2,19 @@
 #define QS_PARTITION_H
 #include <iostream>
 #include <vector>
-#include <limits>
-#include "../../Utils/Utils.h"
+
 #include "./ManipulatorIJ/ManipulatorIJ.h"
 
 class Partition : public ManipulatorIJ
 {
-protected:
+/* protected:
     int INFINITY = std::numeric_limits<int>::max();
     int NEG_INFINITY = std::numeric_limits<int>::min();
     struct PartitionResult
     {
         int left = -1;
         int right = -1;
-    };
+    }; */
 
 public:
     Partition();

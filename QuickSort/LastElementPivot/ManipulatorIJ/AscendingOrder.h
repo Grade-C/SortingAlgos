@@ -1,7 +1,7 @@
 #ifndef QS_LEP_ASCO_H
 #define QS_LEP_ASCO_H
-#include "../AbstractIJ/AbstractIJ.h"
-class AscendingOrder : virtual public AbstractIJ
+#include "../../Bases/BaseIJManipulator.h"
+class AscendingOrder : virtual public BaseIJManipulator
 {
 protected:
     void increaseI(int &i, int high, std::vector<int> list, int pivot);

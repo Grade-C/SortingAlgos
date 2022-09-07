@@ -1,6 +1,6 @@
 #include "QuickSort.h"
 
-void QuickSort::sort(std::vector<int> &input, Varients varient , Order order){
+void QuickSort::sort(std::vector<int> &input, std::string varient , Order order){
 
 }
 
