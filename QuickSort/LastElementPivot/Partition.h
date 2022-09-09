@@ -12,7 +12,7 @@ namespace LEP
         // void preThresholdSwap(int &i, int &j, const int pivot, std::vector<int> &list, const int high, const int low, const bool isAscending);
         // void postThresholdSwap(const int i, const int j, const int pivotFinalIdx, std::vector<int> &list);
 
-    protected:
+    public:
         PartitionResult partition(const int low, const int high, std::vector<int> &list, const bool isAscending);
     };
 

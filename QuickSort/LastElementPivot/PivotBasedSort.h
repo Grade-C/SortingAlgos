@@ -1,18 +1,20 @@
-/* #ifndef QUICK_SORT_LEP_H
+#ifndef QS_LEP_H
 #define QUICK_SORT_LEP_H
 #include "../../Sort/Sort.h"
-#include "../Partition/Partition.h"
+#include "Partition.h"
 
-class PivotBasedSort : public Sort, public Partition
+namespace LEP
 {
-private:
-    void sort(int low, int high, std::vector<int> &list, Order order);
+    class PivotBasedSort : public Sort, public Partition
+    {
+    private:
+        void sort(int low, int high, std::vector<int> &list, Order order);
 
-public:
-    std::string PivotBasedSort::getName();
+    public:
+        std::string PivotBasedSort::getName();
+        void sort(std::vector<int> &input, Order order);
+        
+    };
+}
 
-protected:
-    void sort(std::vector<int> &input, Order order);
-};
 #endif
- */

@@ -1,28 +1,39 @@
 #include "QuickSort.h"
 
 void QuickSort::sort(std::vector<int> &input, Variants variant , Order order){
-    bool isAscending = order == Order::Asc ? true : false;
-    this->variantsMap[variant]->partition(low, high, list, isAscending);
+    //bool isAscending = order == Order::Asc ? true : false;
+    sort(0, input.size() - 1, input, variant, order);
+
+    //this->variantsMap[variant]->partition(low, high, list, isAscending);
 }
 
-void QuickSort::sort(int t, int high, std::vector<int> &list, Order order)
+void QuickSort::sort(int low, int high, std::vector<int> &list, Variants variant, Order order)
 {
     bool isAscending = order == Order::Asc ? true : false;
-    PartitionResult partitionResult = this->partition(low, high, list, isAscending);
+    BasePartition *selectedPartition =  this->variantsMap[variant];
+    BasePartition::PartitionResult partitionResult =  selectedPartition->partition(low, high, list, isAscending);
+    //BasePartition::PartitionResult partitionResult =  lepPartition.partition(low, high, list, isAscending);
+    
+    int newHigh, newLow;
+    if(selectedPartition == &lepPartition){
+        newHigh = partitionResult.left - 1;
+        newLow = partitionResult.right;
+    }
+
     if (partitionResult.left > -1)
     {
-        sort(low, partitionResult.left - 1, list, order); // LEP
+        sort(low, newHigh, list , variant, order); // LEP
     }
     if (partitionResult.right > -1)
     {
-        sort(partitionResult.right, high, list, order); // LEP
+        sort(newLow, high, list, variant, order); // LEP
     }
 }
 
-void QuickSort::sort(std::vector<int> &input, Order order)
+/* void QuickSort::sort(std::vector<int> &input, Order order)
 {
     sort(0, input.size() - 1, input, order);
-}
+} */
 
 std::string QuickSort::getName()
 {
@@ -50,7 +61,8 @@ int main()
     {
         std::cout << "Unsorted: ";
         Utils::printVector(elem);
-        qs.sort(elem, qs.Des);
+        //qs.sort(elem, qs.Des);
+        qs.sort(elem);
         std::cout << "Sorted: ";
         Utils::printVector(elem);
         std::cout<< "\n";
