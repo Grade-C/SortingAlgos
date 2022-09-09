@@ -3,14 +3,19 @@
 #include "../Bases/BasePartition.h"
 #include "./ManipulatorIJ/ManipulatorIJ.h"
 
-class Partition : public ManipulatorIJ, public BasePartition
+namespace LEP
 {
-private:
-    //void initializeData(int &i, int &j, int &pivot, const std::vector<int> list, const int high, const int low);
-    //void preThresholdSwap(int &i, int &j, const int pivot, std::vector<int> &list, const int high, const int low, const bool isAscending);
-    //void postThresholdSwap(const int i, const int j, const int pivotFinalIdx, std::vector<int> &list);
+    class Partition : public ManipulatorIJ, public BasePartition
+    {
+    private:
+        // void initializeData(int &i, int &j, int &pivot, const std::vector<int> list, const int high, const int low);
+        // void preThresholdSwap(int &i, int &j, const int pivot, std::vector<int> &list, const int high, const int low, const bool isAscending);
+        // void postThresholdSwap(const int i, const int j, const int pivotFinalIdx, std::vector<int> &list);
 
-protected:
-    PartitionResult partition(const int low, const int high, std::vector<int> &list, const bool isAscending);
-};
+    protected:
+        PartitionResult partition(const int low, const int high, std::vector<int> &list, const bool isAscending);
+    };
+
+}
+
 #endif

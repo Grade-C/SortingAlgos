@@ -30,7 +30,7 @@
 
 }  */
 
-BasePartition::PartitionResult Partition::partition(int low, int high, std::vector<int> &list, bool isAscending)
+BasePartition::PartitionResult LEP::Partition::partition(int low, int high, std::vector<int> &list, bool isAscending)
 {
     //int pivot, i, j;
     int pivot = list[high]; // LEP
