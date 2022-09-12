@@ -75,7 +75,7 @@ int main()
         std::cout << "Unsorted: ";
         Utils::printVector(elem);
         //qs.sort(elem, qs.Des);
-        qs.sort(elem, qs.FEP, qs.Asc);
+        qs.sort(elem, qs.FEP, qs.Des);
         std::cout << "Sorted: ";
         Utils::printVector(elem);
         //std::cout<< "\n";
