@@ -48,7 +48,8 @@ int main()
 
     QuickSort qs;
     std::vector<std::vector<int>> input;
-    std::vector<int> unsortedData = {34, 1, 1, 13, 10, 11, -9, 12, 4, 1, -7, -9, 139, 139, 45, 45, 45, 25, 12, 7, 56, 6, 8, 45, 10, 45, 34, 10, 12, 3, 11, 45, -7, -9};
+    std::vector<int> unsortedData;
+    unsortedData = {34, 1, 1, 13, 10, 11, -9, 12, 4, 1, -7, -9, 139, 139, 45, 45, 45, 25, 12, 7, 56, 6, 8, 45, 10, 45, 34, 10, 12, 3, 11, 45, -7, -9};
     input.push_back(unsortedData);
     unsortedData = {13, 10, 11, 4, 139, 25, 11, 7, 56, 6, 8, 12, 11, 3, 13, 11};
     input.push_back(unsortedData);
@@ -64,7 +65,9 @@ int main()
     input.push_back(unsortedData);
     unsortedData = {5, 4, 3, 2, 1 };
     input.push_back(unsortedData);
-    unsortedData = {12, 4, 2, 13, 1};
+    unsortedData = {12, 4, 2, 13, 1}; 
+    input.push_back(unsortedData);
+    unsortedData = {12, 4, 2, 13, 7, 1, 5};
     input.push_back(unsortedData);
     for (auto elem : input)
     {

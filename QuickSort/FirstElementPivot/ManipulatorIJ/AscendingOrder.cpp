@@ -1,7 +1,7 @@
 #include "AscendingOrder.h"
 void AscendingOrder::increaseI(int &i, int high, std::vector<int> list, int pivot)
 {
-    while (list[i] <= pivot && i < high)
+    while (list[i] <= pivot && i <= high) //FEP
     {
         i++;
     }

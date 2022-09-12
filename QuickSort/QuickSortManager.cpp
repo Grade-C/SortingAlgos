@@ -14,8 +14,8 @@ void QuickSortManager::sort(int low, int high, std::vector<int> &list, Variants 
         newHigh = partitionResult.left - 1;
         newLow = partitionResult.right;
     } else if (selectedPartition == &fepPartition){
-        newHigh = partitionResult.left;
-        newLow = partitionResult.right+1;
+        newHigh = partitionResult.left - 1;
+        newLow = partitionResult.right + 1;
     }
 
     if (partitionResult.left > -1)
