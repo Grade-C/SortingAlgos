@@ -2,18 +2,21 @@
 
 void QuickSort::sort(std::vector<int> &input, Variants variant , Order order){
     //bool isAscending = order == Order::Asc ? true : false;
-    sort(0, input.size() - 1, input, variant, order);
+    QuickSortManager::sort(0, input.size() - 1, input, variant, order);
+    //sort(0, input.size() - 1, input, variant, order);
 
     //this->variantsMap[variant]->partition(low, high, list, isAscending);
 }
 
-void QuickSort::sort(int low, int high, std::vector<int> &list, Variants variant, Order order)
+int count =0;
+/* void QuickSort::sort(int low, int high, std::vector<int> &list, Variants variant, Order order)
 {
+
     bool isAscending = order == Order::Asc ? true : false;
     BasePartition *selectedPartition =  this->variantsMap[variant];
     BasePartition::PartitionResult partitionResult =  selectedPartition->partition(low, high, list, isAscending);
     //BasePartition::PartitionResult partitionResult =  lepPartition.partition(low, high, list, isAscending);
-    
+    count++;
     int newHigh, newLow;
     if(selectedPartition == &lepPartition){
         newHigh = partitionResult.left - 1;
@@ -29,7 +32,7 @@ void QuickSort::sort(int low, int high, std::vector<int> &list, Variants variant
         sort(newLow, high, list, variant, order); // LEP
     }
 }
-
+ */
 /* void QuickSort::sort(std::vector<int> &input, Order order)
 {
     sort(0, input.size() - 1, input, order);
@@ -57,15 +60,21 @@ int main()
     input.push_back(unsortedData);
     unsortedData = {1, 3, 2, 14};
     input.push_back(unsortedData);
+    unsortedData = {1, 2, 3, 4, 5};
+    input.push_back(unsortedData);
+    unsortedData = {5, 4, 3, 2, 1 };
+    input.push_back(unsortedData);
     for (auto elem : input)
     {
+        count = 0;
         std::cout << "Unsorted: ";
         Utils::printVector(elem);
         //qs.sort(elem, qs.Des);
-        qs.sort(elem);
+        qs.sort(elem, qs.LEP, qs.Asc);
         std::cout << "Sorted: ";
         Utils::printVector(elem);
-        std::cout<< "\n";
+        //std::cout<< "\n";
+        std::cout << "info :\nSize: " <<elem.size() << "\niteration: "<<count<< "\n\n"; 
     }
 
     return 0;
