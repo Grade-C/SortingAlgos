@@ -69,17 +69,25 @@ int main()
     input.push_back(unsortedData);
     unsortedData = {12, 4, 2, 13, 7, 1, 5};
     input.push_back(unsortedData);
+    unsortedData = {12, 4, 22};
+    input.push_back(unsortedData);
+    unsortedData = {12, 4};
+    input.push_back(unsortedData);
+    unsortedData = {12};
+    input.push_back(unsortedData);
+    unsortedData = {};
+    input.push_back(unsortedData);
     for (auto elem : input)
     {
         count = 0;
         std::cout << "Unsorted: ";
         Utils::printVector(elem);
         //qs.sort(elem, qs.Des);
-        qs.sort(elem, qs.FEP, qs.Des);
+        qs.sort(elem, qs.LEP, qs.Des);
         std::cout << "Sorted: ";
         Utils::printVector(elem);
         //std::cout<< "\n";
-        std::cout << "info :\nSize: " <<elem.size() << "\niteration: "<<count<< "\n\n"; 
+        std::cout << "info :\n\tSize: " <<elem.size() << "\n\titeration: "<<count<< "\n\n"; 
     }
 
     return 0;
