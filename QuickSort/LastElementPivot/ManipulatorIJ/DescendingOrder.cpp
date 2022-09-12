@@ -1,5 +1,5 @@
 #include "DescendingOrder.h"
-void DescendingOrder::increaseI(int &i, int high, std::vector<int> list, int pivot)
+void LEP::DescendingOrder::increaseI(int &i, int high, std::vector<int> list, int pivot)
 {
     while (list[i] >= pivot && i < high) // LEP
     {
@@ -7,7 +7,7 @@ void DescendingOrder::increaseI(int &i, int high, std::vector<int> list, int piv
     }
 }
 
-void DescendingOrder::decreaseJ(int &j, int low, std::vector<int> list, int pivot)
+void LEP::DescendingOrder::decreaseJ(int &j, int low, std::vector<int> list, int pivot)
 {
     while (list[j] < pivot && j > low) // LEP
     {

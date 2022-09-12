@@ -1,6 +1,6 @@
 #include "ManipulatorIJ.h"
 
-void LEP::ManipulatorIJ::increaseI(int &i, const int high, std::vector<int> list, int pivot)
+void ManipulatorIJ::increaseI(int &i, const int high, std::vector<int> list, int pivot)
 {
     if (this->isAscending)
     {
@@ -11,13 +11,13 @@ void LEP::ManipulatorIJ::increaseI(int &i, const int high, std::vector<int> list
         DescendingOrder::increaseI(i, high, list, pivot);
     }
 }
-void LEP::ManipulatorIJ::increaseI(int &i, const int high, std::vector<int> list, int pivot, bool isAscending)
+void ManipulatorIJ::increaseI(int &i, const int high, std::vector<int> list, int pivot, bool isAscending)
 {
     this->isAscending = isAscending;
     increaseI(i, high, list, pivot);
 }
 
-void LEP::ManipulatorIJ::decreaseJ(int &j, const int low, std::vector<int> list, int pivot)
+void ManipulatorIJ::decreaseJ(int &j, const int low, std::vector<int> list, int pivot)
 {
     if (this->isAscending)
     {
@@ -29,7 +29,7 @@ void LEP::ManipulatorIJ::decreaseJ(int &j, const int low, std::vector<int> list,
     }
 }
 
-void LEP::ManipulatorIJ::decreaseJ(int &j, const int low, std::vector<int> list, int pivot, bool isAscending)
+void ManipulatorIJ::decreaseJ(int &j, const int low, std::vector<int> list, int pivot, bool isAscending)
 {
     this->isAscending = isAscending;
     decreaseJ(j, low, list, pivot);

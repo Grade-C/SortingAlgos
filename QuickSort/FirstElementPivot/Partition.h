@@ -1,9 +1,9 @@
-#ifndef QS_LEP_PARTITION_H
-#define QS_LEP_PARTITION_H
+#ifndef QS_FEP_PARTITION_H
+#define QS_FEP_PARTITION_H
 #include "../Bases/BasePartition.h"
 #include "./ManipulatorIJ/ManipulatorIJ.h"
 
-namespace LEP
+namespace FEP
 {
     class Partition : public ManipulatorIJ, public BasePartition
     {

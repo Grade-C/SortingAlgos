@@ -4,6 +4,7 @@
 
 #include "../Sort/Sort.h"
 #include "./LastElementPivot/Partition.h"
+#include "./FirstElementPivot/Partition.h"
 
 class QuickSortManager : public Sort
 {
@@ -17,7 +18,9 @@ public:
 
 private:
     LEP::Partition lepPartition;
-    std::map<Variants, BasePartition *> variantsMap = {{LEP, &lepPartition}};
+    FEP::Partition fepPartition;
+    //std::map<Variants, BasePartition *> variantsMap = {{LEP, &lepPartition}};
+    std::map<Variants, BasePartition *> variantsMap = {{LEP, &lepPartition}, {FEP, &fepPartition}};
 
 protected:
     void sort(int low, int high, std::vector<int> &list, Variants variant, Order order);

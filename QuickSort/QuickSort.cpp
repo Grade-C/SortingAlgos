@@ -64,13 +64,15 @@ int main()
     input.push_back(unsortedData);
     unsortedData = {5, 4, 3, 2, 1 };
     input.push_back(unsortedData);
+    unsortedData = {12, 4, 2, 13, 1};
+    input.push_back(unsortedData);
     for (auto elem : input)
     {
         count = 0;
         std::cout << "Unsorted: ";
         Utils::printVector(elem);
         //qs.sort(elem, qs.Des);
-        qs.sort(elem, qs.LEP, qs.Asc);
+        qs.sort(elem, qs.FEP, qs.Asc);
         std::cout << "Sorted: ";
         Utils::printVector(elem);
         //std::cout<< "\n";
