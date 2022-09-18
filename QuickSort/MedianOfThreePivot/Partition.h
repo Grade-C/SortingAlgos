@@ -11,7 +11,7 @@ namespace FEP
         PartitionResult partition(const int low, const int high, std::vector<int> &list, const bool isAscending);
 
     private:
-        int findPivot();
+        int findPivot(const int low, const int high, std::vector<int> &list);
     };
 
 }
