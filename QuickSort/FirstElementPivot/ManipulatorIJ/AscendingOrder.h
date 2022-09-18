@@ -1,7 +1,7 @@
 #ifndef QS_FEP_ASCO_H
 #define QS_FEP_ASCO_H
 #include "../../Bases/BaseIJManipulator.h"
-namespace LEP
+namespace FEP
 {
     class AscendingOrder : virtual public BaseIJManipulator
     {
