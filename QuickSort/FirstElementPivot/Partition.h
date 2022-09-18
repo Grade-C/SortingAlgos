@@ -2,7 +2,6 @@
 #define QS_FEP_PARTITION_H
 #include "../Bases/BasePartition.h"
 #include "./ManipulatorIJ/ManipulatorIJ.h"
-
 namespace FEP
 {
     class Partition : public ManipulatorIJ, public BasePartition
