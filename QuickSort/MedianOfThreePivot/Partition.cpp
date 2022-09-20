@@ -1,45 +1,70 @@
 #include "Partition.h"
 //#include <cmath>
 
-int MOTP::Partition::findPivot(const int low, const int high, std::vector<int> &list, bool isAscending)
+void MOTP::Partition::updateListValues(int index, std::vector<int> &list, std::pair <int, int> pairElem){
+    if(index != pairElem.first){
+        list[index] = pairElem.second;
+    }
+}
+std::pair<int, int> MOTP::Partition::findPivot(const int low, const int high, std::vector<int> &list, bool isAscending)
 {
     int mid = (int)ceil((low + high) / 2);
-    //int three[3] = {low, mid, high};
-    std::map<int, int> threeElems = {{low, list[low]},{mid, list[mid]},{high, list[high]}};
-    int smallest = NEG_INFINITY;
-    for(auto elem : threeElems){
+    std::map<int, int> threeElems = {{low, list[low]}, {mid, list[mid]}, {high, list[high]}};
+    std::pair<int, int> smallest(INFINITY, INFINITY);
+    std::pair<int, int> largest(NEG_INFINITY, NEG_INFINITY);
+    std::pair<int, int> median(0, 0);
+    std::pair<int, int> pivotPair;
 
-
-    }
-
-    if (isAscending)
+    int mid = 0;
+    for (auto elem : threeElems)
     {
-        if (list[mid] < list[low])
+        // if (isAscending)
+        //{
+        if (elem.second < smallest.second)
         {
-            Utils::swap(list[mid], list[low]);
+            median = smallest;
+            // median.first = smallest.first;
+            // median.second = smallest.second;
+            smallest = elem;
+            // smallest.first = elem.first;
+            // smallest.second = elem.second;
         }
-        if (list[high] < list[mid])
+        if (elem.second > largest.second)
         {
-            Utils::swap(list[high], list[mid]);
+            median = largest;
+            largest = elem;
         }
-        if (list[high] < list[low])
-        {
-            Utils::swap(list[high], list[low]);
-        }
+        //}else{
+
+        //}
     }
-    else
-    {
+    if(isAscending){
+        updateListValues(low, list, smallest);
+        updateListValues(mid, list, median);
+        updateListValues(high, list, largest);
+        Utils::swap(list[mid], list[high-1]);
+        pivotPair.first = high-1;
+        pivotPair.second = list[high-1];
+    }else{
+        updateListValues(low, list, largest);
+        updateListValues(mid, list, median);
+        updateListValues(high, list, smallest);
+        Utils::swap(list[mid], list[low+1]);
+        pivotPair.first = low+1;
+        pivotPair.second = list[low+1];
     }
 
-    return 1;
+    return pivotPair;
 }
 
 BasePartition::PartitionResult MOTP::Partition::partition(int low, int high, std::vector<int> &list, bool isAscending)
 {
     // std::cout << "First Element Pivot\n";
-    int pivot = list[low]; // FEP
-    int i = low + 1;       // FEP
-    int j = high;          // FEP
+    std::pair<int, int> pivotpair = findPivot(low, high, list, isAscending); // MOTP
+    int pivotIndex = pivotpair.first;
+    int pivot = pivotpair.second;
+    int i = isAscending? low : high;       // MOTP
+    int j = isAscending? high-1 : low+1;          // MOTP
     /* std::cout << "Pivot : "<< pivot <<"\n";
     std::cout << "PivotIdx : "<< low <<"\n";
     std::cout << "low : "<< low <<"\n";
@@ -47,7 +72,7 @@ BasePartition::PartitionResult MOTP::Partition::partition(int low, int high, std
     std::cout << "i : "<< i <<"\n";
     std::cout << "j : "<< j <<"\n";  */
 
-    while (i <= j) // FEP // Temporarily keeping. need to check whether it works with FEP
+    while (i <= j) // FEP // Temporarily keeping. need to check whether it works with MOTP
     {
         increaseI(i, high, list, pivot, isAscending);
         decreaseJ(j, low, list, pivot, isAscending);
@@ -59,8 +84,8 @@ BasePartition::PartitionResult MOTP::Partition::partition(int low, int high, std
 
     if (i >= j)
     {
-        Utils::swap(list[low], list[j]); // FEP
+        Utils::swap(list[pivotIndex], list[i]); // FEP
     }
     Utils::printVector(list);
-    return makePartitionResult(low, high, j, list, isAscending); // LEP
+    return makePartitionResult(low, high, i, list, isAscending); // LEP
 }

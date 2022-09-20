@@ -25,7 +25,7 @@ BasePartition::PartitionResult BasePartition::makePartitionResult(const int low,
             Utils::swap(list[newPivotIdx - 1], list[newPivotIdx - 2]);
         }
     }
-
+    // Need tochange since we have removed Infinity from the algorithm 
     if (rightWindowSize > 3 ||
         ((isAscending && rightWindowSize == 3 && list[high] < this->INFINITY) || (!isAscending && rightWindowSize == 3 && list[high] > this->NEG_INFINITY)))
     {
